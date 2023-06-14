@@ -7,11 +7,11 @@ import com.google.gson.annotations.SerializedName
 data class Response(
 
 	@field:SerializedName("totalResults")
-	val totalResults: Int? = null,
+	val totalResults: Int,
 
 	@field:SerializedName("articles")
-	val articles: List<ArticlesItem?>? = null,
+	val articles: List<ArticlesItem>,
 
 	@field:SerializedName("status")
-	val status: String? = null
+	val status: String
 )

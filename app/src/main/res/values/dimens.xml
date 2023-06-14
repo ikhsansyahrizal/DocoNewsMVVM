@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //padding
+    <dimen name="padding_small">10dp</dimen>
+    <dimen name="padding_25">25dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="padding_6">6dp</dimen>
+    //margin
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="medium_margin">16dp</dimen>
+    <dimen name="big_margin">36dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    //text
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    //radius
+    <dimen name="radius_10">10dp</dimen>
+    <dimen name="radius_6">6dp</dimen>
+    //widht &amp; height
+    <dimen name="width_50">50dp</dimen>
+    <dimen name="width_180">180dp</dimen>
+    <dimen name="height_200">200dp</dimen>
+    <dimen name="height_100">100dp</dimen>
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="height_150">150dp</dimen>
+    //extra
+    <dimen name="small_elevation">4dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="small_radius">20dp</dimen>
+
+</resources>
