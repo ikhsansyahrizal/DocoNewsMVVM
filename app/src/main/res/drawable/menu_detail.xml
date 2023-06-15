@@ -5,7 +5,7 @@
     <item
         android:id="@+id/add_bookmark"
         android:title="@string/bookmars"
-        android:icon="@drawable/baseline_bookmark_add_24"
+        android:icon="@drawable/ic_bookmark_add_24"
         app:showAsAction="ifRoom|collapseActionView"
         android:orderInCategory="100"/>
 

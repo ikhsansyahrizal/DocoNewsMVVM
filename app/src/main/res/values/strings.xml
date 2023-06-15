@@ -13,4 +13,5 @@
     <string name="date">Date News</string>
     <string name="news_photo">News photo</string>
     <string name="error">error</string>
+    <string name="share_button">share_button</string>
 </resources>

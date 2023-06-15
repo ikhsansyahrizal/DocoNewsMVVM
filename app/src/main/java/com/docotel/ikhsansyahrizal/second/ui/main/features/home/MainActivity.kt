@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.docotel.ikhsansyahrizal.doconewss.helper.EndlessOnScrollListener
 import com.docotel.ikhsansyahrizal.second.R

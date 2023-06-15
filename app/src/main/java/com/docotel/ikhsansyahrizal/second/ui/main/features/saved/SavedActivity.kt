@@ -34,7 +34,7 @@ class SavedActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener {
         setSupportActionBar(binding.myToolbarBookmark)
         toast = Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT)
         toast.view?.findViewById<ImageView>(android.R.id.icon)?.apply {
-            setImageResource(R.drawable.baseline_delete_24)
+            setImageResource(R.drawable.ic_delete_24)
             visibility = View.VISIBLE
         }
 

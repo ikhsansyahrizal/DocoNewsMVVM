@@ -5,14 +5,14 @@
     <item
         android:id="@+id/action_search"
         android:title="@string/search"
-        android:icon="@drawable/baseline_search_24"
+        android:icon="@drawable/ic_search_24"
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
         android:id="@+id/bookmarks"
         android:title="@string/bookmars"
-        android:icon="@drawable/baseline_bookmarks_24"
+        android:icon="@drawable/ic_bookmarks_24"
         app:showAsAction="ifRoom|collapseActionView"
         android:orderInCategory="100"/>
 

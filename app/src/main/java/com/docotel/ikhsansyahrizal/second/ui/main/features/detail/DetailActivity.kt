@@ -13,9 +13,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import com.docotel.ikhsansyahrizal.second.R
-import com.docotel.ikhsansyahrizal.second.helper.Constant
 import com.docotel.ikhsansyahrizal.second.data.api.response.ArticlesItem
-import com.docotel.ikhsansyahrizal.second.data.repository.local.LocalRepository
 import com.docotel.ikhsansyahrizal.second.databinding.ActivityDetailBinding
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,8 +53,8 @@ class DetailActivity : AppCompatActivity() {
         val url = article?.url.toString()
         val linkText = getText(R.string.read_more)
 
-        val linkSpan = SpannableString(linkText)
-        linkSpan.setSpan(
+        val link_span = SpannableString(linkText)
+        link_span.setSpan(
             object : ClickableSpan() {
                 override fun onClick(widget: View) {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
@@ -64,17 +62,29 @@ class DetailActivity : AppCompatActivity() {
                 }
             }, 0, linkText.length, Spanned.SPAN_EXCLUSIVE_INCLUSIVE
         )
-        tvReadMore.text = linkSpan
+        tvReadMore.text = link_span
+
+        binding.ibShare.setOnClickListener {
+            shareLink(url)
+        }
 
     }
+
+    private fun shareLink(link: String) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, link)
+        startActivity(Intent.createChooser(intent, "Share via"))
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detail, menu)
         val bookmarkIcon = menu?.findItem(R.id.add_bookmark)
         if (isBookmarked) {
-            bookmarkIcon?.setIcon(R.drawable.baseline_bookmark_added_24)
+            bookmarkIcon?.setIcon(R.drawable.ic_bookmark_added_24)
         } else {
-            bookmarkIcon?.setIcon(R.drawable.baseline_bookmark_add_24)
+            bookmarkIcon?.setIcon(R.drawable.ic_bookmark_add_24)
         }
         updateBookmarkIcon(articlesItem)
         return true
@@ -104,8 +114,8 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun updateBookmarkIcon(articlesItem: ArticlesItem) {
-        val listArticle = viewModel.getBookmarkedArticles()
-        isBookmarked = listArticle.contains(articlesItem)
+        val list_article = viewModel.getBookmarkedArticles()
+        isBookmarked = list_article.contains(articlesItem)
         invalidateOptionsMenu()
     }
 

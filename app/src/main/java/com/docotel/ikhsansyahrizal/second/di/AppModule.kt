@@ -3,13 +3,15 @@ package com.docotel.ikhsansyahrizal.second.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import android.net.wifi.WifiManager.LocalOnlyHotspotReservation
-import android.preference.PreferenceManager
 import com.docotel.ikhsansyahrizal.second.data.api.retrofit.NewsApiService
+import com.docotel.ikhsansyahrizal.second.data.repository.local.LocalRepositoryImp
 import com.docotel.ikhsansyahrizal.second.data.repository.local.LocalRepository
-import com.docotel.ikhsansyahrizal.second.data.repository.local.LocalRepositoryInterface
 import com.docotel.ikhsansyahrizal.second.data.repository.remote.RemoteRepository
-import com.docotel.ikhsansyahrizal.second.data.repository.remote.RemoteRepositoryInterface
+import com.docotel.ikhsansyahrizal.second.data.repository.remote.RemoteRepositoryImp
+import com.docotel.ikhsansyahrizal.second.datasource.local.LocalDataSource
+import com.docotel.ikhsansyahrizal.second.datasource.local.LocalDataSourceImp
+import com.docotel.ikhsansyahrizal.second.datasource.remote.RemoteDataSource
+import com.docotel.ikhsansyahrizal.second.datasource.remote.RemoteDataSourceImp
 import com.docotel.ikhsansyahrizal.second.helper.Constant
 import dagger.Module
 import dagger.Provides
@@ -35,22 +37,37 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRemoteRepository(apiService: NewsApiService): RemoteRepositoryInterface {
-        return RemoteRepository(apiService)
-
-    }
-
-    @Provides
-    @Singleton
-    fun provideSharedPreference(application: Application) : SharedPreferences {
+    fun provideSharedPreference(application: Application): SharedPreferences {
         return application.getSharedPreferences(Constant.PREFERENCE_NAME, Context.MODE_PRIVATE)
     }
 
 
     @Provides
     @Singleton
-    fun provideLocalRepository(sharedPreferences: SharedPreferences) : LocalRepositoryInterface {
-        return LocalRepository(sharedPreferences)
+    fun provideRemoteDataSource(newsApiService: NewsApiService): RemoteDataSource {
+        return RemoteDataSourceImp(newsApiService)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideRemoteRepository(remoteDataSource: RemoteDataSource): RemoteRepository {
+        return RemoteRepositoryImp(remoteDataSource)
+
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideLocalDataSource(sharedPreferences: SharedPreferences): LocalDataSource {
+        return LocalDataSourceImp(sharedPreferences)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideLocalRepository(localDataSource: LocalDataSource): LocalRepository {
+        return LocalRepositoryImp(localDataSource)
     }
 
 

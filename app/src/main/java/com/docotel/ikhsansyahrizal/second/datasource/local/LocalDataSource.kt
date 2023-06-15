@@ -1,8 +1,8 @@
-package com.docotel.ikhsansyahrizal.second.data.repository.local
+package com.docotel.ikhsansyahrizal.second.datasource.local
 
 import com.docotel.ikhsansyahrizal.second.data.api.response.ArticlesItem
 
-interface LocalRepositoryInterface {
+interface LocalDataSource {
 
     fun getBookmarkedArticles() : List<ArticlesItem>?
 
@@ -13,4 +13,5 @@ interface LocalRepositoryInterface {
     fun removeBookmark(article: ArticlesItem)
 
     fun clearAllBookmarks()
+
 }

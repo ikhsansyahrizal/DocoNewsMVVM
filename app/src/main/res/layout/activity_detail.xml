@@ -62,10 +62,11 @@
         android:layout_marginEnd="@dimen/big_margin"
         android:layout_marginBottom="@dimen/medium_margin"
         android:gravity="start"
+        android:fontFamily="@font/poppins_medium"
         android:text="@string/title"
         android:justificationMode="inter_word"
         android:paddingHorizontal="@dimen/padding_25"
-        android:textSize="@dimen/text_24"
+        android:textSize="@dimen/text_18"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,6 +98,7 @@
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:paddingTop="@dimen/padding_8"
                 android:layout_marginStart="@dimen/zero_dp"
                 android:gravity="center"
@@ -109,6 +111,7 @@
                 style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_marginStart="@dimen/zero_dp"
                 android:layout_marginBottom="@dimen/small_margin"
                 android:gravity="center"
@@ -122,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_12"
                 android:layout_marginVertical="@dimen/margin_4"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="top"
                 android:justificationMode="inter_word"
                 android:maxLines="@integer/material_motion_duration_long_2"
@@ -134,6 +138,7 @@
                 android:id="@+id/tv_read_more_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_marginHorizontal="@dimen/margin_12"
                 android:layout_marginVertical="@dimen/margin_4"
                 android:gravity="start"
@@ -145,6 +150,17 @@
 
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ib_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/big_margin"
+        android:src="@drawable/ic_share_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/share_button" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
