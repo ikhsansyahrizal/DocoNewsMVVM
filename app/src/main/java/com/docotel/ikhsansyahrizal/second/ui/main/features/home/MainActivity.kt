@@ -16,6 +16,7 @@ import com.docotel.ikhsansyahrizal.second.helper.Constant
 import com.docotel.ikhsansyahrizal.second.helper.StateApi
 import com.docotel.ikhsansyahrizal.second.data.api.response.ArticlesItem
 import com.docotel.ikhsansyahrizal.second.databinding.ActivityMainBinding
+import com.docotel.ikhsansyahrizal.second.security.Security
 import com.docotel.ikhsansyahrizal.second.ui.main.adapter.NewsAdapter
 import com.docotel.ikhsansyahrizal.second.ui.main.features.detail.DetailActivity
 import com.docotel.ikhsansyahrizal.second.ui.main.features.saved.SavedActivity
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener {
         binding.rvNews.stopScroll()
         page = 1
         loadMore = false
-        viewModel.fetchNews("us", "", page, 5, Constant.API_KEY)
+        viewModel.fetchNews(Security.country(), "", page, 5, Security.apiKey())
 
         scrollData().let { newItemDetected ->
             binding.rvNews.addOnScrollListener(newItemDetected)
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener {
             binding.rvNews.stopScroll()
             page = 1
             loadMore = false
-            viewModel.fetchNews("us", "", page, 5, Constant.API_KEY)
+            viewModel.fetchNews(Security.country(), "", page, 5, Security.apiKey())
             scrollData().let { newItemDetected ->
                 binding.rvNews.addOnScrollListener(newItemDetected)
             }
@@ -114,7 +115,7 @@ class MainActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener {
             override fun onLoadMore() {
                 page += 1
                 loadMore = true
-                viewModel.fetchNews("us", "", page, 5, Constant.API_KEY)
+                viewModel.fetchNews(Security.country(), "", page, 5, Security.apiKey())
             }
         }
     }
@@ -127,7 +128,7 @@ class MainActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 articleItemsArrayList.clear()
-                viewModel.fetchNews("us", query, page, 5, Constant.API_KEY)
+                viewModel.fetchNews(Security.country(), query, page, 5, Security.apiKey())
                 queryData = query
                 scrollData().let { newItemDetected ->
                     binding.rvNews.addOnScrollListener(newItemDetected)

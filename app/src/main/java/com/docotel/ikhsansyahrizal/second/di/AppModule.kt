@@ -13,6 +13,7 @@ import com.docotel.ikhsansyahrizal.second.datasource.local.LocalDataSourceImp
 import com.docotel.ikhsansyahrizal.second.datasource.remote.RemoteDataSource
 import com.docotel.ikhsansyahrizal.second.datasource.remote.RemoteDataSourceImp
 import com.docotel.ikhsansyahrizal.second.helper.Constant
+import com.docotel.ikhsansyahrizal.second.security.Security
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,7 +30,7 @@ object AppModule {
     @Singleton
     fun provideApiService(): NewsApiService {
         return Retrofit.Builder()
-            .baseUrl(Constant.BASE_URL)
+            .baseUrl(Security.baseUrl())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(NewsApiService::class.java)
