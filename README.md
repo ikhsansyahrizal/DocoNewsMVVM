@@ -1,0 +1,1 @@
+Android app for displaying current news, with feature to save and share selected news. using public newsapi and implementing MVVM arcitecture pattern with navigation component and dependency injection with hilt.
